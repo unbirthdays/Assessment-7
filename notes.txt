@@ -1,0 +1,6 @@
+Runtime Analysis
+
+1. Ran the command
+
+2. insert 779.81775 ms
+append 2.316125 ms
