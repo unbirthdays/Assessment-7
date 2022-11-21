@@ -2,5 +2,32 @@ Runtime Analysis
 
 1. Ran the command
 
-2. insert 779.81775 ms
+2. extraLargeArray runtimes:
+insert 779.81775 ms
 append 2.316125 ms
+
+3. tinyArray runtimes:
+insert 24.375 μs
+append 102.583 μs
+
+smallArray runtimes:
+insert 36.25 μs
+append 126.125 μs
+
+mediumArray runtimes:
+insert 189.5 μs
+append 145.208 μs
+
+largeArray runtimes:
+insert 9.0515 ms
+append 519.333 μs
+
+4. For smaller arrays, the doublerInsert function is faster (this is indicative in the arrays tinyArray and smallArray).
+However, once the arrays get a bit larger, the doublerInsert function's runtime grows exponentially.
+By the largeArray, it crosses over from microseconds to multiple milliseconds before the doublerAppend function does.
+The worst case scenario is much worse for the doublerInsert due to its unshift method. Observing the doublerAppend method,
+the runtime of each scenario is much gentler slope due to its use of the push method tacking on data to the end of the array.
+We can tell the exponential growth much more easily by creating a visual graph. The doublerInsert function's runtime would show
+its behavior crossing the doublerAppend and quickly outgrowing how much time it would take the larger the array would get.
+Generally for purposes such as a search engine or any other feature where runtime matters, we would want to utilize a function
+as close to O(n) as possible.
